@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction - Algerian_forest_fires</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login">
+        <h1>Fire Weather Index (FWI) </h1>
+        <form action="{{url_for('predict')}}" method="post">
+        <div class="data_box">
+            <input type="text" name="Temperature" placeholder="Temperature" required="required">
+            <input type="text" name="RH" placeholder="RH" required="required">
+            <input type="text" name="Ws" placeholder="Ws" required="required">
+            <input type="text" name="Rain" placeholder="Rain" required="required">
+            <input type="text" name="FFMC" placeholder="FFMC" required="required">
+            <input type="text" name="DMC" placeholder="DMC" required="required">
+            <input type="text" name="ISI" placeholder="ISI" required="required">
+            <input type="text" name="Classes" placeholder="Classes" required="required">
+            <input type="text" name="Region" placeholder="Region" required="required">
+            <button type="submit" class="btn">Predict</button>
+        
+        </div>
+    </form>
+    <h3 class="result">The FWI Prediction is {{ result }}</h3>
+    </div>
+    
+</body>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      document.querySelector('.btn').click();
+    }
+  });
+</script>
+</html>
